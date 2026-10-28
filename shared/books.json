@@ -1,0 +1,74 @@
+[
+  {
+    "id": "nordurljos",
+    "title": "Norðurljós",
+    "author": "Elín Sól",
+    "genre": "Ævintýri",
+    "description": "Ung kona fylgir dularfullum ljósum yfir hálendið og finnur gleymda sögu.",
+    "image": "covers/nordurljos.svg",
+    "alt": ""
+  },
+  {
+    "id": "sidasti-kaflinn",
+    "title": "Síðasti kaflinn",
+    "author": "Aron Már",
+    "genre": "Spennusaga",
+    "description": "Bókavörður finnur ólokið handrit og reynir að finna höfundinn.",
+    "image": "covers/sidasti-kaflinn.svg",
+    "alt": ""
+  },
+  {
+    "id": "husid-vid-hafid",
+    "title": "Húsið við hafið",
+    "author": "Sara Lind",
+    "genre": "Skáldsaga",
+    "description": "Tvær systur snúa aftur í æskuheimilið og læra að hlusta hvor á aðra.",
+    "image": "covers/husid-vid-hafid.svg",
+    "alt": ""
+  },
+  {
+    "id": "litli-gardurinn",
+    "title": "Litli garðurinn",
+    "author": "Óli Björn",
+    "genre": "Hugljúf saga",
+    "description": "Nágrannar breyta auðum reit í garð sem tengir fólk saman.",
+    "image": "covers/litli-gardurinn.svg",
+    "alt": ""
+  },
+  {
+    "id": "stjornufarinn",
+    "title": "Stjörnufarinn",
+    "author": "Birna Rós",
+    "genre": "Vísindaskáldskapur",
+    "description": "Ferðalangur á leið til fjarlægrar stjörnu fær skilaboð frá heimili sínu.",
+    "image": "covers/stjornufarinn.svg",
+    "alt": ""
+  },
+  {
+    "id": "kaffi-i-rigningu",
+    "title": "Kaffi í rigningu",
+    "author": "Eva Mist",
+    "genre": "Smásögur",
+    "description": "Stuttar sögur um hversdagsleg kynni á litlu kaffihúsi.",
+    "image": "covers/kaffi-i-rigningu.svg",
+    "alt": ""
+  },
+  {
+    "id": "fjallid",
+    "title": "Fjallið",
+    "author": "Jón Logi",
+    "genre": "Ævintýri",
+    "description": "Vinir leggja upp í gönguferð þar sem samvinna skiptir meira máli en áfangastaðurinn.",
+    "image": "covers/fjallid.svg",
+    "alt": ""
+  },
+  {
+    "id": "bref-til-morguns",
+    "title": "Bréf til morguns",
+    "author": "Una Dís",
+    "genre": "Ljóð",
+    "description": "Ljóð um árstíðir, von og smá augnablik daglegs lífs.",
+    "image": "covers/bref-til-morguns.svg",
+    "alt": ""
+  }
+]
