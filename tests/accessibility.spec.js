@@ -72,7 +72,10 @@ test('02 — keyboard-only complete main task', async ({ page }) => {
   await page.keyboard.type('reader@example.com');
   await page.keyboard.press('Tab');
   await expect(page.getByRole('combobox', { name: 'Reading format', exact: true })).toBeFocused();
-  await page.keyboard.press('ArrowDown');
+  // Native type-ahead velur Prentuð bók án stýrikerfis-popup.
+  // Þetta er áfram lyklaborðsaðgerð; gildið er sannreynt hér fyrir neðan.
+  await page.keyboard.press('p');
+  await expect(page.getByRole('combobox', { name: 'Reading format', exact: true })).toHaveValue('printed');
   await page.keyboard.press('Tab');
   await expect(page.getByRole('checkbox', { name: 'I agree to join the reading club', exact: true })).toBeFocused();
   await page.keyboard.press('Space');

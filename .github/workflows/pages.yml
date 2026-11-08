@@ -1,0 +1,51 @@
+name: Test B and publish Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      # B controls whether publication proceeds. A remains frozen for comparison.
+      - name: Test B
+        run: npm run test:b
+        env:
+          RESULT_FILE: report/evidence/ci-b.json
+      - name: Preserve test evidence
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: accessibility-evidence
+          path: |
+            report/evidence/ci-b.json
+            test-results/
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+  deploy:
+    needs: test-and-build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

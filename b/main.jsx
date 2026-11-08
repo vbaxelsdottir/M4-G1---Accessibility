@@ -30,6 +30,34 @@ function App() {
     dialog.current.showModal();
     closeButton.current.focus();
   }
+  // Native dialog gerir bakgrunninn óvirkan. Þetta heldur Tab-röðinni
+  // inni í glugganum, líka þegar Close er eina stjórntækið.
+  function keepDialogFocus(event) {
+    if (event.key !== 'Tab') return;
+    const controls = [...event.currentTarget.querySelectorAll(
+      'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )].filter(element => element.tabIndex >= 0 && element.getClientRects().length > 0);
+    const first = controls[0];
+    const last = controls[controls.length - 1];
+    if (!first) return;
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+  // Ljúkum lokun og fókusendurkomu saman. Seinn close-viðburður
+  // má ekki stela fókus þegar notandi er þegar kominn á næsta hnapp.
+  function closeBook() {
+    dialog.current.close();
+    opener.current?.focus();
+  }
+  function cancelBook(event) {
+    event.preventDefault();
+    closeBook();
+  }
   function toggleSave(id) {
     setSaved(previous => { const next = new Set(previous); next.has(id) ? next.delete(id) : next.add(id); return next; });
   }
@@ -65,7 +93,7 @@ function App() {
       </form></section>
     </main>
     <footer><p>Lestrarhornið · Sýniverkefni með ímynduðum bókum og höfundum.</p></footer>
-    <dialog ref={dialog} aria-labelledby="dialog-title" onClose={() => opener.current?.focus()}><button ref={closeButton} className="close" lang="en" onClick={() => dialog.current.close()}>Close</button>{selected && <div className="dialog-content"><img src={cover(selected)} alt="" /><div><p>{selected.genre}</p><h2 id="dialog-title">{selected.title}</h2><p>{selected.author}</p><p>{selected.description}</p></div></div>}</dialog>
+    <dialog ref={dialog} onKeyDown={keepDialogFocus} aria-labelledby="dialog-title" onCancel={cancelBook}><button ref={closeButton} className="close" lang="en" onClick={closeBook}>Close</button>{selected && <div className="dialog-content"><img src={cover(selected)} alt="" /><div><p>{selected.genre}</p><h2 id="dialog-title">{selected.title}</h2><p>{selected.author}</p><p>{selected.description}</p></div></div>}</dialog>
   </>;
 }
 createRoot(document.getElementById('root')).render(<App />);
