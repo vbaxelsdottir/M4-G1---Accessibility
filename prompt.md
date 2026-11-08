@@ -12,3 +12,9 @@ Síðan þarf header með sleppihlekk og nav í þrjá kafla, main, footer, eitt
 Aðalverkefni: leita að Norðurljósum, opna upplýsingar, loka, vista bókina og skrá sig. Síðan á að líta út eins og venjuleg bókaklúbbssíða, ekki námskeið í aðgengi. Ekki bæta við óumbeðnum eiginleikum eða kennsluleiðbeiningum á síðuna.
 
 Byggðu fullbúna útfærslu úr fyrirliggjandi tómu React-inngangsskrá. Prófunarsafnið í tests/ er sameiginlegt og má ekki veikja. Verkefnið keyrir staðbundið; ekki birta það eða breyta Git/GitHub úr þessari byggingarlotu.
+
+## Stílgögn afhent eftir A/B-byggingu
+
+Upprunalegi sameiginlegi byggingarpromptinn hér að ofan er varðveittur. Module 3 var afhent síðar og beitt á loka-B; sjá shared/style-guide.md fyrir frávik og heimildir.
+
+![Module 3 moodboard](shared/module3-guide.png)

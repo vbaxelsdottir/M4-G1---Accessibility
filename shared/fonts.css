@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./fonts/module3-0.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./fonts/module3-1.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Moderustic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./fonts/module3-2.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Moderustic';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./fonts/module3-3.ttf) format('truetype');
+}
